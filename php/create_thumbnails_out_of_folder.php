@@ -1,3 +1,6 @@
+I created this function back in 2013 for my www.rememberthegif.com project
+where i needed to collect available images coming from a certain folder.
+
 function createThumbs( $pathToImages, $pathToThumbs, $thumbWidth ){
   $dir = opendir( $pathToImages );
   
