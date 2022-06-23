@@ -1,0 +1,16 @@
+October CMS admin reset.
+Ich hab mal wieder ein OctoberCMS Passwort vergessen und da die "reset passwort" Funktion aus mir bis dato immer noch unerklärlichen Gründen immer noch nicht funktioniert musste ich mal wieder direkt an der Datenbank rumhacken. Nach mehreren Recherchen hab ich dann mit dem unten aufgeführtem Code einfach einen neuen Standard User admin:admin erstellt, mich damit eingeloggt und meinem alten Admin user ein neues Passwort vergeben.
+
+INSERT INTO 'backend_users'
+('id', 'first_name', 'last_name', 'login', 'email', 'password', 'activation_code', 'persist_code', 'reset_password_code', 'permissions', 'is_activated', 'activated_at', 'last_login', 'created_at', 'updated_at') 
+VALUES
+(1, 'Admin', 'Person', 'admin', 'admin@domain.tld', '$2y$10$VOrmqckzw7JoQXsqUxB0mO65d3m.vwrkXlmzcktEaKAccqwnY/JF6', NULL, NULL, NULL, '{""superuser"":1}', 1, NULL, NULL, '2015-05-08 07:55:26', '2015-05-08 07:55:26');
+
+INSERT INTO 'backend_users_groups'
+('user_id', 'user_group_id')
+VALUES (1, 1);
+
+INSERT INTO 'backend_user_groups'
+('id', 'name', 'permissions', 'created_at', 'updated_at', 'code', 'description', 'is_new_user_default')
+VALUES
+(1, 'Admins', NULL, '2015-05-08 07:55:25', '2015-05-08 07:55:25', 'admins', 'Default group for administrators', 1);
