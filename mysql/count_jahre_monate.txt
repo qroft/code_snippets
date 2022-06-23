@@ -1,0 +1,8 @@
+Auf der Suche nach dem Zählen einer bestimmten Menge nach Monaten und Jahren geordnet bin ich über
+Stackoverflow auf mehrere Lösungen gestossen von denen diese hier perfekt ist:
+
+  SELECT DATE_FORMAT(created, '%Y') as 'year',
+  DATE_FORMAT(created, '%m') as 'month',
+  COUNT(id) as 'total'
+  FROM table_name
+  GROUP BY DATE_FORMAT(created, '%Y%m')
