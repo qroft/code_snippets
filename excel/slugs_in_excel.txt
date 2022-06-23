@@ -1,0 +1,7 @@
+Slugs in Excel erstellen.
+
+Ich möchte gerade Joomla Einträge via Excel in October importieren. Eines der Felder ist das URL Slug.
+Und dank Sam Deering hab ich die Perfekte Formel dafür gefunden!
+So wird aus dem Post-Titel ""Es war einmal"" das SEO freundliche "es-war-einmal"
+
+=LOWER(SUBSTITUTE(TRIM(A2)," ",-))
